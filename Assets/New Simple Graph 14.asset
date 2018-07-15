@@ -1,0 +1,337 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b0b4d16c690ab84fa1a3bfda6321af0, type: 3}
+  m_Name: New Simple Graph 14
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 114470206968625484}
+  - {fileID: 114799459094719332}
+  - {fileID: 0}
+--- !u!114 &114470206968625484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97225d1922248c94c997f5d957e295b8, type: 3}
+  m_Name: 'GameObject: Main Camera'
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -600, y: -136}
+  ports:
+    keys:
+    - Custom
+    - AudioListener
+    - FlareLayer
+    - Camera
+    - Transform
+    values:
+    - _fieldName: Custom
+      _node: {fileID: 114470206968625484}
+      _typeQualifiedName: Custom, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 1
+    - _fieldName: AudioListener
+      _node: {fileID: 114470206968625484}
+      _typeQualifiedName: UnityEngine.AudioListener, UnityEngine.AudioModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 1
+    - _fieldName: FlareLayer
+      _node: {fileID: 114470206968625484}
+      _typeQualifiedName: UnityEngine.FlareLayer, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 1
+    - _fieldName: Camera
+      _node: {fileID: 114470206968625484}
+      _typeQualifiedName: UnityEngine.Camera, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 1
+    - _fieldName: Transform
+      _node: {fileID: 114470206968625484}
+      _typeQualifiedName: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: component
+        node: {fileID: 114799459094719332}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 1
+  _component: {fileID: 0}
+  objectInput:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _dynamic: 0
+  __input: []
+  __output: []
+  __isInput: 
+  __isShown: 
+  __isOutput: 
+  gameObject: {fileID: 0}
+  components:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  output:
+  - _fieldName: Transform
+    _node: {fileID: 114470206968625484}
+    _typeQualifiedName: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    connections:
+    - fieldName: component
+      node: {fileID: 114799459094719332}
+      reroutePoints: []
+    _direction: 1
+    _connectionType: 0
+    _dynamic: 1
+  - _fieldName: Camera
+    _node: {fileID: 114470206968625484}
+    _typeQualifiedName: UnityEngine.Camera, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    connections: []
+    _direction: 1
+    _connectionType: 0
+    _dynamic: 1
+  - _fieldName: FlareLayer
+    _node: {fileID: 114470206968625484}
+    _typeQualifiedName: UnityEngine.FlareLayer, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    connections: []
+    _direction: 1
+    _connectionType: 0
+    _dynamic: 1
+  - _fieldName: AudioListener
+    _node: {fileID: 114470206968625484}
+    _typeQualifiedName: UnityEngine.AudioListener, UnityEngine.AudioModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    connections: []
+    _direction: 1
+    _connectionType: 0
+    _dynamic: 1
+  - _fieldName: Custom
+    _node: {fileID: 114470206968625484}
+    _typeQualifiedName: Custom, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    connections: []
+    _direction: 1
+    _connectionType: 0
+    _dynamic: 1
+  isOutput: 0101010101
+--- !u!114 &114667347280990908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 218745e57dd45dc41a243a05add0c2f5, type: 3}
+  m_Name: Custom
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -358.7651, y: 180.62009}
+  ports:
+    keys:
+    - component
+    values:
+    - _fieldName: component
+      _node: {fileID: 114667347280990908}
+      _typeQualifiedName: Custom, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 0
+  _component: {fileID: 0}
+  objectInput:
+    _fieldName: component
+    _node: {fileID: 114667347280990908}
+    _typeQualifiedName: Custom, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    connections: []
+    _direction: 0
+    _connectionType: 1
+    _dynamic: 0
+  __input: []
+  __output: []
+  __isInput: []
+  __isShown: []
+  __isOutput: []
+  component: {fileID: 0}
+--- !u!114 &114799459094719332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Transform
+  m_EditorClassIdentifier: Assembly-CSharp::TemplatedNode
+  graph: {fileID: 11400000}
+  position: {x: -328, y: -24}
+  ports:
+    keys:
+    - component
+    - m_LocalScale ->
+    - -> m_LocalScale
+    - m_LocalPosition ->
+    - -> m_LocalPosition
+    - m_LocalRotation ->
+    - -> m_LocalRotation
+    values:
+    - _fieldName: component
+      _node: {fileID: 114799459094719332}
+      _typeQualifiedName: UnityEngine.Component, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Transform
+        node: {fileID: 114470206968625484}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 0
+    - _fieldName: m_LocalScale ->
+      _node: {fileID: 114799459094719332}
+      _typeQualifiedName: UnityEditor.SerializedProperty, UnityEditor, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 1
+    - _fieldName: -> m_LocalScale
+      _node: {fileID: 114799459094719332}
+      _typeQualifiedName: UnityEditor.SerializedProperty, UnityEditor, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 1
+    - _fieldName: m_LocalPosition ->
+      _node: {fileID: 114799459094719332}
+      _typeQualifiedName: UnityEditor.SerializedProperty, UnityEditor, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 1
+    - _fieldName: -> m_LocalPosition
+      _node: {fileID: 114799459094719332}
+      _typeQualifiedName: UnityEditor.SerializedProperty, UnityEditor, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 1
+    - _fieldName: m_LocalRotation ->
+      _node: {fileID: 114799459094719332}
+      _typeQualifiedName: UnityEditor.SerializedProperty, UnityEditor, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 1
+    - _fieldName: -> m_LocalRotation
+      _node: {fileID: 114799459094719332}
+      _typeQualifiedName: UnityEditor.SerializedProperty, UnityEditor, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 1
+  _component: {fileID: 0}
+  objectInput:
+    _fieldName: component
+    _node: {fileID: 114799459094719332}
+    _typeQualifiedName: UnityEngine.Component, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    connections:
+    - fieldName: Transform
+      node: {fileID: 114470206968625484}
+      reroutePoints: []
+    _direction: 0
+    _connectionType: 1
+    _dynamic: 0
+  __input:
+  - _fieldName: -> m_LocalRotation
+    _node: {fileID: 114799459094719332}
+    _typeQualifiedName: UnityEditor.SerializedProperty, UnityEditor, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    connections: []
+    _direction: 0
+    _connectionType: 1
+    _dynamic: 1
+  - _fieldName: -> m_LocalPosition
+    _node: {fileID: 114799459094719332}
+    _typeQualifiedName: UnityEditor.SerializedProperty, UnityEditor, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    connections: []
+    _direction: 0
+    _connectionType: 1
+    _dynamic: 1
+  - _fieldName: -> m_LocalScale
+    _node: {fileID: 114799459094719332}
+    _typeQualifiedName: UnityEditor.SerializedProperty, UnityEditor, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    connections: []
+    _direction: 0
+    _connectionType: 1
+    _dynamic: 1
+  __output:
+  - _fieldName: m_LocalRotation ->
+    _node: {fileID: 114799459094719332}
+    _typeQualifiedName: UnityEditor.SerializedProperty, UnityEditor, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    connections: []
+    _direction: 1
+    _connectionType: 0
+    _dynamic: 1
+  - _fieldName: m_LocalPosition ->
+    _node: {fileID: 114799459094719332}
+    _typeQualifiedName: UnityEditor.SerializedProperty, UnityEditor, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    connections: []
+    _direction: 1
+    _connectionType: 0
+    _dynamic: 1
+  - _fieldName: m_LocalScale ->
+    _node: {fileID: 114799459094719332}
+    _typeQualifiedName: UnityEditor.SerializedProperty, UnityEditor, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    connections: []
+    _direction: 1
+    _connectionType: 0
+    _dynamic: 1
+  __isInput: 000000
+  __isShown: 010101
+  __isOutput: 000000
+  component: {fileID: 0}
