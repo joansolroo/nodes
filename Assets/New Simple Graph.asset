@@ -29,7 +29,7 @@ MonoBehaviour:
   m_Name: 'Animator: Animated cube'
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -936, y: 120}
+  position: {x: -616, y: 120}
   ports:
     keys:
     - gameObject
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: Animator Parameter Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -168, y: 56}
+  position: {x: -216, y: -56}
   ports:
     keys:
     - channel

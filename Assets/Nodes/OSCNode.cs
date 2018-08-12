@@ -65,7 +65,11 @@ public class OSCEditor : NodeEditor
     public override void OnBodyGUI()
     {
         OSCNode target = ((OSCNode)this.target);
-        target.gameObject = (UnityEngine.GameObject)EditorGUILayout.ObjectField("GameObject", target.gameObject, typeof(UnityEngine.GameObject), true);
+        target.Connection = (OSC.Connection)EditorGUILayout.ObjectField("OSC object", target.Connection, typeof(OSC.Connection), true);
+        if (target.Connection != null)
+        {
+            target.gameObject = target.Connection.gameObject;
+        }
         target.Bind(target.gameObject, true);
 
 
