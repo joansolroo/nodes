@@ -50,8 +50,13 @@ public abstract class WrapperNode : Node
     [HideInInspector] [SerializeField] public bool[] __isInput;
     [HideInInspector] [SerializeField] public bool[] __isShown;
     [HideInInspector] [SerializeField] public bool[] __isOutput;
+
+    [HideInInspector] [SerializeField] public Vector2 nodeSize;
+
+    [SerializeField] public List<string> connections = new List<string>();
 }
 
+[Node.NodeWidth(500)]
 public abstract class ComponentNode<T> : WrapperNode where T : Component
 {
     [Input(ShowBackingValue.Unconnected,ConnectionType.Override)]
@@ -62,6 +67,7 @@ public abstract class ComponentNode<T> : WrapperNode where T : Component
         base.Init();
         objectInput = GetInputPort("component");
         name = typeof(T).Name;
+        //Bind();
     }
 
     public override void OnCreateConnection(NodePort from, NodePort to)
@@ -72,6 +78,7 @@ public abstract class ComponentNode<T> : WrapperNode where T : Component
             _component = component;
             Bind();
         }
+        connections.Add(from.node.name + "." + from.fieldName + " to " + to.node.name + "." + to.fieldName); 
     }
     public override void OnRemoveConnection(NodePort port)
     {
@@ -153,6 +160,7 @@ public abstract class ComponentNode<T> : WrapperNode where T : Component
         __isShown = new bool[count];
         properties = new SerializedProperty[count];
         int idx = 0;
+
         prop = serializedObject.GetIterator();
         if (prop.NextVisible(true))
         {
@@ -196,6 +204,7 @@ public abstract class ComponentNode<T> : WrapperNode where T : Component
                 ++idx;
             }
             while (prop.NextVisible(false));
+            
         }
     }
 }
@@ -240,6 +249,7 @@ public class ComponentNEditor<T> : NodeEditor where T : Component
                 node.serializedObject.ApplyModifiedProperties();
             }
         }
+        
     }
 }
 [CustomEditor(typeof(WrapperNode), true)]
@@ -267,7 +277,11 @@ public class ComponentNodeInspector : Editor
                     EditorGUILayout.EndHorizontal();
                 }
         }
-
+        EditorGUILayout.Separator();
+        foreach(string c in component.connections)
+        {
+            EditorGUILayout.LabelField(c);
+        }
     }
 }
 /*

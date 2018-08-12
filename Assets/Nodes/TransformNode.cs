@@ -8,5 +8,5 @@ using XNodeEditor;
 
 public class TransformNode : ComponentNode<Transform>{}
 
-[CustomNodeEditor(typeof(TransformNode))]
+[CustomNodeEditor(typeof(TransformNode))] 
 public class TNEditor : ComponentNEditor<Transform> {}

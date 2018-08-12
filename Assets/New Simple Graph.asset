@@ -1,0 +1,242 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b0b4d16c690ab84fa1a3bfda6321af0, type: 3}
+  m_Name: New Simple Graph
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 114241513292010992}
+  - {fileID: 114864323773533944}
+  - {fileID: 114730058351540606}
+  - {fileID: 114930674422118708}
+  - {fileID: 114691329219938370}
+--- !u!114 &114241513292010992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49bd19d134b972b4a93b73eb22fc222c, type: 3}
+  m_Name: 'Animator: Animated cube'
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -936, y: 120}
+  ports:
+    keys:
+    - gameObject
+    - Animator
+    values:
+    - _fieldName: gameObject
+      _node: {fileID: 114241513292010992}
+      _typeQualifiedName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: Animator
+      _node: {fileID: 114241513292010992}
+      _typeQualifiedName: UnityEngine.Animator, UnityEngine.AnimationModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: animator
+        node: {fileID: 114930674422118708}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  gameObject: {fileID: 0}
+  Animator: {fileID: 0}
+  initialized: 1
+--- !u!114 &114691329219938370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28c63339896546b47b9c9d6a62b7f093, type: 3}
+  m_Name: Channel In Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -600, y: -56}
+  ports:
+    keys:
+    - Receiver
+    - channel
+    values:
+    - _fieldName: Receiver
+      _node: {fileID: 114691329219938370}
+      _typeQualifiedName: OSC.Receiver, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Receiver
+        node: {fileID: 114864323773533944}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: channel
+      _node: {fileID: 114691329219938370}
+      _typeQualifiedName: OSC.ChannelIn, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: channel
+        node: {fileID: 114930674422118708}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  Receiver: {fileID: 0}
+  channel: {fileID: 0}
+  address: /OSC-ch1
+  initialized: 1
+--- !u!114 &114730058351540606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2ecb56e6baff12479f526dec614403b, type: 3}
+  m_Name: OSC Receiver Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -600, y: -152}
+  ports:
+    keys:
+    - Receiver
+    values:
+    - _fieldName: Receiver
+      _node: {fileID: 114730058351540606}
+      _typeQualifiedName: OSC.Receiver, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Receiver
+        node: {fileID: 114864323773533944}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+  Receiver: {fileID: 0}
+  initialized: 1
+--- !u!114 &114864323773533944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a6f321696030a242a7c6f8fb786fdb0, type: 3}
+  m_Name: 'OSC '
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -952, y: -152}
+  ports:
+    keys:
+    - gameObject
+    - Connection
+    - Sender
+    - Receiver
+    values:
+    - _fieldName: gameObject
+      _node: {fileID: 114864323773533944}
+      _typeQualifiedName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: Connection
+      _node: {fileID: 114864323773533944}
+      _typeQualifiedName: OSC.Connection, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: Sender
+      _node: {fileID: 114864323773533944}
+      _typeQualifiedName: OSC.Sender, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: Receiver
+      _node: {fileID: 114864323773533944}
+      _typeQualifiedName: OSC.Receiver, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Receiver
+        node: {fileID: 114730058351540606}
+        reroutePoints: []
+      - fieldName: Receiver
+        node: {fileID: 114691329219938370}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  gameObject: {fileID: 0}
+  Connection: {fileID: 0}
+  Sender: {fileID: 0}
+  Receiver: {fileID: 0}
+  initialized: 1
+--- !u!114 &114930674422118708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01d8da0611ef1ed488e6e1007735ba98, type: 3}
+  m_Name: Animator Parameter Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -168, y: 56}
+  ports:
+    keys:
+    - channel
+    - animator
+    values:
+    - _fieldName: channel
+      _node: {fileID: 114930674422118708}
+      _typeQualifiedName: OSC.IChannel, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: channel
+        node: {fileID: 114691329219938370}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: animator
+      _node: {fileID: 114930674422118708}
+      _typeQualifiedName: UnityEngine.Animator, UnityEngine.AnimationModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Animator
+        node: {fileID: 114241513292010992}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+  channel: {fileID: 0}
+  animator: {fileID: 0}
+  parameter: {fileID: 0}
+  parameterName: puet
+  selected: 0
+  initialized: 1

@@ -5,27 +5,46 @@ using XNode;
 using UnityEditor;
 using XNodeEditor;
 
-public class GameObjectNode : WrapperNode
+[System.Serializable]
+public class GameObjectNode : Node
 {
 
+    [Node.Output]
     [SerializeField] public GameObject gameObject;
-    [HideInInspector] [SerializeField] public Component[] components;
-    [HideInInspector] public NodePort[] output;
-    [SerializeField] public bool[] isOutput;
+    [Node.Output]
+    [SerializeField] public Transform Transform;
 
+    /*
+    [HideInInspector] [SerializeField] public Component[] components;
+    [HideInInspector] [SerializeField] public NodePort[] output;
+    [SerializeField] public bool[] isOutput;
+    */
+    public override void OnAwake()
+    {
+        initialized = false;
+    }
+    public override void OnStart()
+    {
+        //Debug.Log("hi");
+        Init();
+    }
     protected override void Init()
     {
         base.Init();
         Bind(gameObject);
     }
 
-    public void Bind(GameObject go)
+    public bool initialized = false;
+    public void Bind(GameObject go, bool force = false)
     {
-        gameObject = go;
-        if (gameObject != null)
+
+        if (force || (go != null && (go != gameObject)))
         {
-            name = "GameObject: "+go.name;
-            ClearInstancePorts();
+            //initialized = false;
+            gameObject = go;
+            name = "GameObject: " + go.name;
+            Transform = go.transform;
+            /*ClearInstancePorts();
             components = gameObject.GetComponents<Component>();
             output = new NodePort[components.Length];
             isOutput = new bool[components.Length];
@@ -35,19 +54,23 @@ public class GameObjectNode : WrapperNode
                 NodePort p = AddInstanceOutput(c.GetType(), ConnectionType.Multiple, c.GetType().Name);
                 isOutput[idx] = true;
                 output[idx++] = p;
-            }
+            }*/
+            initialized = true;
         }
     }
 
     public override object GetValue(NodePort port)
     {
+        if (port.fieldName == "gameObject") return gameObject;
+        if (port.fieldName == "Transform") return Transform;
+        /*
         for (int idx = 0; idx < output.Length; ++idx)
         {
             if (port == output[idx])
             {
                 return components[idx];
             }
-        }
+        }*/
         return null;
     }
 }
@@ -57,47 +80,60 @@ public class GONEditor : NodeEditor
 {
     public override void OnBodyGUI()
     {
-        if (((GameObjectNode)target).gameObject == null)
+        GameObjectNode target = ((GameObjectNode)this.target);
+        if (target.gameObject == null)
         {
 
-            if (GUILayout.Button("Build Object"))
+            if (GUILayout.Button("Bind object"))
             {
                 ((GameObjectNode)target).Bind(Selection.activeGameObject);
             };
         }
-        else
+        else if (target.initialized)
         {
-            //SerializedObject serializedObject = new SerializedObject(target);
-            //NodeEditorGUILayout.PortField(((GameObjectNode)target).input);
-            //NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("a"));
-            //NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("b"));
-            //UnityEditor.EditorGUILayout.LabelField("The value is " + target.GetValue(null));
-            //NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("sum"));
-            
+
+            foreach (NodePort port in target.Outputs)
+            {
+
+                NodeEditorGUILayout.PortField(port);
+
+            }/*
             for (int idx = 0; idx< ((GameObjectNode)target).output.Length; ++idx)
             {
                 if (((GameObjectNode)target).isOutput[idx])
                 {
-                    NodeEditorGUILayout.PortField(((GameObjectNode)target).output[idx]);
+                    NodeEditorGUILayout.PortField(target.output[idx]);
                 }
-            }
+            }*/
+            if (GUILayout.Button("Rebind"))
+            {
+                ((GameObjectNode)target).Bind(Selection.activeGameObject);
+            };
 
         }
+        else
+        {
+            ((GameObjectNode)target).Bind(target.gameObject, true);
+        }
     }
+
     [CustomEditor(typeof(GameObjectNode))]
     public class GameObjectNodeInspector : Editor
     {
         public override void OnInspectorGUI()
         {
             GameObjectNode go = ((GameObjectNode)target);
+            EditorGUILayout.LabelField(go != null ? go.ToString() : "no obj");
+
+            /*
             if (go != null)
             {
                 EditorGUILayout.LabelField("Object:", go.name);
-                if(go.components!=null)for (int idx = 0; idx < go.components.Length; ++idx)
-                { 
-                    go.isOutput[idx] = EditorGUILayout.Toggle(go.components[idx].GetType().Name + " as output", go.isOutput[idx]);
-                }
-            }
+                if (go.components != null) for (int idx = 0; idx < go.components.Length; ++idx)
+                    {
+                        go.isOutput[idx] = EditorGUILayout.Toggle(go.components[idx].GetType().Name + " as output", go.isOutput[idx]);
+                    }
+            }*/
 
         }
     }
