@@ -159,6 +159,7 @@ MonoBehaviour:
   updateMode: 0
   minimum: 0
   maximum: 1
+  speed: 1
   value: 0
 --- !u!1 &22358567
 GameObject:
@@ -251,6 +252,7 @@ MonoBehaviour:
   updateMode: 0
   minimum: 0
   maximum: 1
+  speed: 1
   value: 0
 --- !u!1 &560087383
 GameObject:
@@ -312,6 +314,7 @@ GameObject:
   - component: {fileID: 704889291}
   - component: {fileID: 792228314}
   - component: {fileID: 704889295}
+  - component: {fileID: 704889296}
   m_Layer: 0
   m_Name: OSC Connection
   m_TagString: Untagged
@@ -331,6 +334,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 889250718}
+  - {fileID: 1697267097}
   m_Father: {fileID: 22358568}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -389,6 +393,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &704889295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 704889289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4e13255ecca2a468b0bde0266f8f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  receiver: {fileID: 792228314}
+  address: /OSC-ch2
+  defaultValue: 0
+  value: 0
+--- !u!114 &704889296
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -535,6 +554,54 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1279732872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1000013067216524, guid: 11745bbb19e75064bac3a09401418279,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1279732873}
+  - component: {fileID: 1279732874}
+  m_Layer: 0
+  m_Name: "\u21E7 Random [0,1] "
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1279732873
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4000012505716812, guid: 11745bbb19e75064bac3a09401418279,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1279732872}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1697267097}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1279732874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114000012555891190, guid: 11745bbb19e75064bac3a09401418279,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1279732872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbcdcc95985e9be42ab4c22c5c5650cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateMode: 0
+  minimum: 0
+  maximum: 1
+  speed: 1
+  value: 1
 --- !u!1 &1296406894
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,6 +737,53 @@ Transform:
   m_Father: {fileID: 1266361989}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1697267096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1000012932266318, guid: 11745bbb19e75064bac3a09401418279,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1697267097}
+  - component: {fileID: 1697267098}
+  m_Layer: 0
+  m_Name: "\u21E6 OSC - Send: /OSC-ch2 "
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1697267097
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4000013653320708, guid: 11745bbb19e75064bac3a09401418279,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1697267096}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1279732873}
+  m_Father: {fileID: 704889290}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1697267098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114000012605832740, guid: 11745bbb19e75064bac3a09401418279,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1697267096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda1b27cac623bb48b6bb0aa1599b5fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateMode: 0
+  address: /OSC-ch2
+  value: 0
 --- !u!1 &1704140935
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,8 +899,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07363b25297ce3242b564d90db41d9b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  parameterName: Note
+  animator: {fileID: 1704140937}
+  parameterName: On
   input: {fileID: 0}
   value: 0
 --- !u!114 &1704140942
@@ -802,7 +916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1704140937}
   parameterName: puet
-  input: {fileID: 704889295}
+  input: {fileID: 704889296}
   value: 0
 --- !u!1 &1750807718
 GameObject:

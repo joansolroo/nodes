@@ -14,6 +14,8 @@ public class NoiseGenerator : Generator
     float minimum = 0;
     [SerializeField]
     float maximum = 1;
+    [SerializeField]
+    float speed = 1;
 
     [Header("Output")]
     [SerializeField]
@@ -31,7 +33,7 @@ public class NoiseGenerator : Generator
     }
     protected override bool Evaluate()
     {
-        value = UnityEngine.Random.Range(minimum, maximum);
+        value = Mathf.MoveTowards(value,UnityEngine.Random.Range(minimum, maximum),speed*Time.deltaTime);
         return true;
     }
 

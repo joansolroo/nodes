@@ -15,7 +15,7 @@ public class AnimatorParameterNode : Node
     [Node.Input] [SerializeField] public Animator animator;
     [SerializeField] public AnimatorParameterSetter parameter;
     [SerializeField] public string parameterName;
-    [SerializeField] public int selected =0;
+    [SerializeField] public int selected = 0;
     public override void OnAwake()
     {
 
@@ -43,7 +43,7 @@ public class AnimatorParameterNode : Node
         bool found = false;
         foreach (AnimatorParameterSetter parameter2 in setters)
         {
-           
+
             if (parameter2.parameterName == parameterName)
             {
                 parameter = parameter2;
@@ -63,13 +63,19 @@ public class AnimatorParameterNode : Node
                 }
             }
         }
-        parameter.input = channel;
+        if (parameter != null)
+        {
+            parameter.input = channel;
+        }
     }
     public void Link()
     {
         channel = GetInputPort("channel").GetInputValue<OSC.IChannel>();
         animator = GetInputPort("animator").GetInputValue<Animator>();
-        parameter.input = channel;
+        if (parameter != null)
+        {
+            parameter.input = channel;
+        }
     }
     [HideInInspector] public bool initialized = true;
 
@@ -79,10 +85,14 @@ public class AnimatorParameterNode : Node
         if (to.fieldName == "animator")
         {
             animator = GetInputPort("animator").GetInputValue<Animator>();
+            
         }
         if (to.fieldName == "channel")
         {
             channel = GetInputPort("channel").GetInputValue<OSC.IChannel>();
+        }
+        if (parameter!= null)
+        {
             parameter.input = channel;
         }
     }
@@ -132,6 +142,7 @@ public class AnimatorParameterEditor : NodeEditor
 
                     EditorGUILayout.LabelField("Value:", target.parameter.value.ToString());
                 }
+
             }
         }
     }

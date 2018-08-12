@@ -7,6 +7,7 @@ using UnityEditor;
 using XNodeEditor;
 
 
+[NodeWidth(350)]
 public class OSCNode : Node
 {
 
@@ -72,6 +73,12 @@ public class OSCEditor : NodeEditor
         }
         target.Bind(target.gameObject, true);
 
+        if (target.initialized)
+        {
+            target.Connection.RemoteIP = EditorGUILayout.TextField("IP:", target.Connection.RemoteIP);
+            target.Connection.ListenerPort = EditorGUILayout.IntField("local port:", target.Connection.ListenerPort);
+            target.Connection.SendToPort = EditorGUILayout.IntField("remote port:", target.Connection.SendToPort);
+        }
 
         foreach (NodePort port in target.Outputs)
         {
@@ -79,6 +86,7 @@ public class OSCEditor : NodeEditor
             NodeEditorGUILayout.PortField(port);
 
         }
+        
         /*
         if (target.gameObject == null)
         {

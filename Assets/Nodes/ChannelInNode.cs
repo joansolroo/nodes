@@ -122,6 +122,8 @@ public class ChannelInNodeEditor : NodeEditor
                     EditorGUILayout.LabelField("Value:", target.channel.value.ToString());
                 }
             }
+            //Selection.activeGameObject = target.Receiver.gameObject;
         }
+        
     }
 }

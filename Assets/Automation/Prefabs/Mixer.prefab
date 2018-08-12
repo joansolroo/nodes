@@ -362,6 +362,7 @@ MonoBehaviour:
   updateMode: 0
   minimum: 0
   maximum: 1
+  speed: 1
   value: 0
 --- !u!114 &114000011553987384
 MonoBehaviour:
@@ -429,6 +430,7 @@ MonoBehaviour:
   updateMode: 0
   minimum: 0
   maximum: 1
+  speed: 1
   value: 0
 --- !u!114 &114000012605832740
 MonoBehaviour:
